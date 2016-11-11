@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "lint": "semistandard --fix",
-    "test": "tap --nyc-arg=--require --nyc-arg=babel-register src/**/*.spec.js --100",
+    "test": "tap --nyc-arg=--require --nyc-arg=babel-register src/**/*.spec.js --check-coverage",
     "coverage": "tap --nyc-arg=--require --nyc-arg=babel-register *.spec.js --cov --coverage-report=html",
     "prepublish": "npm run test",
     "precommit": "npm run test",
