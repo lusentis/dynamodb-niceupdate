@@ -2,7 +2,7 @@
 Creates DynamoDB's `DocumentClient.update()` param object that performs an update operation, using UpdateExpression.
 Any empty value will be recursively removed from the values, to make [DynamoDB happy](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_PutItem.html).
 
-![](https://nodei.co/npm/ender.png?mini=true)   
+![](https://nodei.co/npm/dynamodb-niceupdate.png?mini=true)   
 [![Build Status](https://travis-ci.org/lusentis/dynamodb-niceupdate.svg?branch=master)](https://travis-ci.org/lusentis/dynamodb-niceupdate) 
 [![Coverage Status](https://coveralls.io/repos/github/lusentis/dynamodb-niceupdate/badge.svg?branch=master)](https://coveralls.io/github/lusentis/dynamodb-niceupdate?branch=master)
 
