@@ -7,7 +7,8 @@
   "license": "MIT",
   "scripts": {
     "lint": "semistandard --fix",
-    "test": "tape -r babel-register src/**/*.spec.js",
+    "test": "tap --nyc-arg=--require --nyc-arg=babel-register src/**/*.spec.js --100",
+    "coverage": "tap --nyc-arg=--require --nyc-arg=babel-register *.spec.js --cov --coverage-report=html",
     "prepublish": "npm run test",
     "precommit": "npm run test",
     "cleanup": "rm -r dist || true",
@@ -20,7 +21,7 @@
     "babel-register": "^6.18.0",
     "precommit": "^1.2.2",
     "semistandard": "^9.1.0",
-    "tape": "^4.6.2"
+    "tap": "^8.0.0"
   },
   "files": [
     "dist/index.js",

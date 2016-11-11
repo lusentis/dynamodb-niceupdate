@@ -1,12 +1,12 @@
 
-const test = require('tape');
+const tap = require('tap');
 const {
   createFieldUpdateParams
 } = require('./index');
 
 const timestamp = Date.now();
 
-test('createFieldUpdateParams should set a field when a non-empty value is provided', t => {
+tap.test('createFieldUpdateParams should set a field when a non-empty value is provided', t => {
   const params = {
     timestamp,
     tableName: 'XXX',
@@ -27,7 +27,7 @@ test('createFieldUpdateParams should set a field when a non-empty value is provi
   t.end();
 });
 
-test('createFieldUpdateParams should remove a field when an empty value is provided', t => {
+tap.test('createFieldUpdateParams should remove a field when an empty value is provided', t => {
   const params = {
     timestamp,
     tableName: 'XXX',
@@ -48,7 +48,7 @@ test('createFieldUpdateParams should remove a field when an empty value is provi
   t.end();
 });
 
-test('createFieldUpdateParams should set a field to a filtered value when an empty nested value is provided', t => {
+tap.test('createFieldUpdateParams should set a field to a filtered value when an empty nested value is provided', t => {
   const params = {
     timestamp,
     tableName: 'XXX',
@@ -72,7 +72,7 @@ test('createFieldUpdateParams should set a field to a filtered value when an emp
   t.end();
 });
 
-test('createFieldUpdateParams should remove a field when a null-ish value is provided', t => {
+tap.test('createFieldUpdateParams should remove a field when a null-ish value is provided', t => {
   const params = {
     timestamp,
     tableName: 'XXX',
@@ -93,7 +93,7 @@ test('createFieldUpdateParams should remove a field when a null-ish value is pro
   t.end();
 });
 
-test('createFieldUpdateParams should remove a field when an empty array value is provided', t => {
+tap.test('createFieldUpdateParams should remove a field when an empty array value is provided', t => {
   const params = {
     timestamp,
     tableName: 'XXX',
@@ -114,7 +114,7 @@ test('createFieldUpdateParams should remove a field when an empty array value is
   t.end();
 });
 
-test('createFieldUpdateParams should remove a field when an empty object value is provided', t => {
+tap.test('createFieldUpdateParams should remove a field when an empty object value is provided', t => {
   const params = {
     timestamp,
     tableName: 'XXX',
