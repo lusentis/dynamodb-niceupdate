@@ -48,7 +48,7 @@ test('createFieldUpdateParams should remove a field when an empty value is provi
   t.end();
 });
 
-test('createFieldUpdateParams should remove a field when an empty nested value is provided', t => {
+test('createFieldUpdateParams should set a field to a filtered value when an empty nested value is provided', t => {
   const params = {
     timestamp,
     tableName: 'XXX',
