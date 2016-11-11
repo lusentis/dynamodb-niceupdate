@@ -41,8 +41,9 @@ const filter = module.exports.filter = callback => what => {
   if (typeof what === 'object' && what !== null) {
     return filterObjectValues(callback)(what);
   }
-  if (callback(what)) {
-    return true;
-  }
-  return false;
+  return what;
+  // if (callback(what)) {
+  //   return true;
+  // }
+  // return false;
 }

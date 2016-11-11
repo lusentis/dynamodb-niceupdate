@@ -1,4 +1,6 @@
 
+const { filter } = require('./filter');
+
 const shouldRemove = module.exports.shouldRemove = value => {
   if (value == null) {
     return true;
@@ -15,7 +17,7 @@ const shouldRemove = module.exports.shouldRemove = value => {
   return false;
 };
 
-module.exports.shouldKeep = value => !shouldRemove(value);
+const shouldKeep = module.exports.shouldKeep = value => !shouldRemove(value);
 
 module.exports.createFieldUpdateParams = function createFieldUpdateParams ({
   tableName,
@@ -30,7 +32,8 @@ module.exports.createFieldUpdateParams = function createFieldUpdateParams ({
     Key: keySchema,
     ExpressionAttributeNames: { '#field': `${fieldName}`, '#updatedOn': 'UpdatedOn' }
   };
-  if (shouldRemove(fieldValue)) {
+  const cleanValue = filter(shouldKeep)(fieldValue);
+  if (shouldRemove(cleanValue)) {
     updateParams = {
       ...updateParams,
       UpdateExpression: 'REMOVE #field SET #updatedOn = :now',
@@ -40,7 +43,7 @@ module.exports.createFieldUpdateParams = function createFieldUpdateParams ({
     updateParams = {
       ...updateParams,
       UpdateExpression: 'SET #field = :value, #updatedOn = :now',
-      ExpressionAttributeValues: { ':value': fieldValue, ':now': `${timestamp}` }
+      ExpressionAttributeValues: { ':value': cleanValue, ':now': `${timestamp}` }
     };
   }
   return updateParams;

@@ -1,17 +1,17 @@
 {
   "name": "dynamodb-niceupdate",
   "version": "0.0.1",
-  "description": "creates DynamoDB param object for an update operation, using UpdateExpression",
+  "description": "Creates DynamoDB param object for an update operation, using UpdateExpression",
   "main": "dist/index.js",
   "author": "Simone Lusenti <lusenti.s@gmail.com>",
   "license": "MIT",
   "scripts": {
     "lint": "semistandard --fix",
-    "test": "tape -r babel-register **/*.spec.js",
+    "test": "tape -r babel-register src/**/*.spec.js",
     "prepublish": "npm run test",
     "precommit": "npm run test",
     "cleanup": "rm -r dist || true",
-    "build": "npm run cleanup && mkdir dist && babel -d dist index.js"
+    "build": "npm run cleanup && mkdir dist && cd src && babel -d ../dist index.js filter.js"
   },
   "devDependencies": {
     "babel-plugin-transform-object-rest-spread": "^6.16.0",
@@ -19,11 +19,15 @@
     "babel-preset-es2017": "^6.16.0",
     "babel-register": "^6.18.0",
     "precommit": "^1.2.2",
+    "semistandard": "^9.1.0",
     "tape": "^4.6.2"
   },
+  "files": [
+    "dist/index.js",
+    "dist/filter.js"
+  ],
   "engines": {
     "node": ">6"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
