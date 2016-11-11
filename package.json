@@ -1,0 +1,29 @@
+{
+  "name": "dynamodb-updateexpression",
+  "version": "0.0.1",
+  "description": "creates DynamoDB param object for an update operation, using UpdateExpression",
+  "main": "dist/index.js",
+  "author": "Simone Lusenti <lusenti.s@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "lint": "semistandard --fix",
+    "test": "tape -r babel-register **/*.spec.js",
+    "prepublish": "npm run test",
+    "precommit": "npm run test",
+    "cleanup": "rm -r dist || true",
+    "build": "npm run cleanup && mkdir dist && babel -d dist index.js"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-object-rest-spread": "^6.16.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-es2017": "^6.16.0",
+    "babel-register": "^6.18.0",
+    "precommit": "^1.2.2",
+    "tape": "^4.6.2"
+  },
+  "engines": {
+    "node": ">6"
+  },
+  "dependencies": {
+  }
+}
