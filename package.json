@@ -1,5 +1,5 @@
 {
-  "name": "dynamodb-updateexpression",
+  "name": "dynamodb-niceupdate",
   "version": "0.0.1",
   "description": "creates DynamoDB param object for an update operation, using UpdateExpression",
   "main": "dist/index.js",
