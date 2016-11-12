@@ -1,6 +1,6 @@
 {
   "name": "dynamodb-niceupdate",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Creates DynamoDB param object for an update operation, using UpdateExpression",
   "main": "dist/index.js",
   "author": "Simone Lusenti <lusenti.s@gmail.com>",
