@@ -9,7 +9,7 @@
     "lint": "semistandard --fix",
     "test": "npm run lint && tap --nyc-arg=--require --nyc-arg=babel-register src/**/*.spec.js --check-coverage",
     "coverage": "tap --nyc-arg=--require --nyc-arg=babel-register *.spec.js --cov --coverage-report=html",
-    "prepublish": "npm run test",
+    "prepublish": "npm run test && npm run build",
     "precommit": "npm run test",
     "cleanup": "rm -r dist || true",
     "build": "npm run cleanup && mkdir dist && cd src && babel -d ../dist index.js filter.js"
