@@ -48,3 +48,54 @@ module.exports.createFieldUpdateParams = function createFieldUpdateParams ({
   }
   return updateParams;
 };
+
+module.exports.createFieldsUpdateParams = function createFieldsUpdateParams ({
+  tableName,
+  keySchema,
+  item,
+  timestamp = Date.now()
+}) {
+  let updateExpression = '';
+  let attiributeNames = { '#updatedOn': 'UpdatedOn' };
+  let attiributeValues = { ':now': `${timestamp}` };
+  let removes = [];
+  let sets = [['#updatedOn', ':now']];
+
+  Object.keys(item).forEach((key, index) => {
+    const nameKey = `#field${index}`;
+    const valueKey = `:value${index}`;
+    const value = filter(shouldKeep)(item[key]);
+    attiributeNames = {
+      ...attiributeNames,
+      [nameKey]: key
+    };
+    if (shouldKeep(value)) {
+      attiributeValues = {
+        ...attiributeValues,
+        [valueKey]: value
+      };
+      sets = [...sets, [nameKey, valueKey]];
+    } else {
+      removes = [...removes, nameKey];
+    }
+  });
+
+  if (removes.length > 0) {
+    updateExpression = `${updateExpression}REMOVE ${removes.join(', ')} `;
+  }
+
+  if (sets.length > 0) {
+    updateExpression = `${updateExpression}SET ${sets.map(([k, v]) => `${k}=${v}`).join(', ')} `;
+  }
+
+  let updateParams = {
+    TableName: tableName,
+    ReturnValues: 'ALL_NEW',
+    Key: keySchema,
+    ExpressionAttributeNames: attiributeNames,
+    ExpressionAttributeValues: attiributeValues,
+    UpdateExpression: updateExpression.trim()
+  };
+
+  return updateParams;
+};
