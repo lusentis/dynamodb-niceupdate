@@ -14,7 +14,7 @@ const filterArray = module.exports.filterArray = callback => arr => {
     }
   });
   return ret;
-}
+};
 
 const filterObjectValues = module.exports.filterObjectValues = callback => object => {
   const ret = {};
@@ -46,4 +46,4 @@ const filter = module.exports.filter = callback => what => {
   //   return true;
   // }
   // return false;
-}
+};
