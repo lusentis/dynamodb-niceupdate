@@ -4,6 +4,8 @@ dynamodb-niceupdate
 Creates DynamoDB's `DocumentClient.update()` param object that performs an update operation, using [`UpdateExpression`](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.Modifying.html).
 Any empty value will be recursively removed, to make [DynamoDB happy](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_PutItem.html).
 
+**This might be already fixed https://github.com/aws/aws-sdk-js/commit/38d38d4292d3804c1b5d3934ee912fbb2e9c71a7**
+
 ![](https://nodei.co/npm/dynamodb-niceupdate.png?mini=true)   
 [![npm](https://img.shields.io/npm/v/dynamodb-niceupdate.svg?maxAge=3600)]() 
 [![Build Status](https://travis-ci.org/lusentis/dynamodb-niceupdate.svg?branch=master&maxAge=3600)](https://travis-ci.org/lusentis/dynamodb-niceupdate) 
