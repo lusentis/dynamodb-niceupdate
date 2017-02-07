@@ -22,7 +22,7 @@
     "babel-register": "^6.18.0",
     "precommit": "^1.2.2",
     "semistandard": "^9.1.0",
-    "tap": "^9.0.3"
+    "tap": "^10.1.0"
   },
   "files": [
     "dist/index.js",
